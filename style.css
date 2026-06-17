@@ -1,12 +1,13 @@
 /* CSS Variables */
 :root {
-    --primary-color: #f97316; /* Orange from the design */
-    --secondary-color: #ea580c; 
-    --text-main: #ffffff;
-    --text-muted: #cbd5e1;
+    --primary-color: #6366f1; /* Indigo from modern themes */
+    --secondary-color: #4f46e5; 
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
     --bg-dark: #0f172a;
-    --bg-form: #000000;
-    --form-input-bg: #ffffff;
+    --bg-card: #1e293b;
+    --bg-form: #0b0f19;
+    --form-input-bg: #1e293b;
     --glass-border: rgba(255, 255, 255, 0.1);
     --font-sans: 'Inter', sans-serif;
     --font-heading: 'Outfit', sans-serif;
@@ -41,6 +42,22 @@ a {
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
     line-height: 1.2;
+}
+
+.sub-heading {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: 800;
 }
 
 /* Navbar */
@@ -90,9 +107,9 @@ h1, h2, h3, h4 {
 .btn-primary {
     background: var(--primary-color);
     padding: 0.8rem 1.8rem;
-    border-radius: 50px;
+    border-radius: 8px;
     font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, background 0.3s;
     border: none;
     color: #fff;
 }
@@ -126,13 +143,13 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(135deg, rgba(15,23,42,1) 0%, rgba(15,23,42,0.7) 100%);
 }
 
 .hero-container {
@@ -155,19 +172,29 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    padding: 0.4rem 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 50px;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     font-weight: 800;
+}
+
+.hero-desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
 }
 
 /* Features List */
 .features-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem 1.5rem;
+    gap: 1.5rem;
     margin-bottom: 3.5rem;
 }
 
@@ -178,25 +205,36 @@ h1, h2, h3, h4 {
 }
 
 .feature-icon {
-    width: 45px;
-    height: 45px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    color: #fff;
-    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
 }
 
 .feature-item span {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 500;
-    line-height: 1.3;
 }
 
-/* Badges Row */
+/* Trusted By */
+.trusted-by {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.trusted-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
 .badges-row {
     display: flex;
     gap: 2rem;
@@ -205,55 +243,35 @@ h1, h2, h3, h4 {
 }
 
 .badge-item strong {
-    display: block;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: var(--font-heading);
-    margin-bottom: 0.2rem;
+    color: #fff;
+    opacity: 0.8;
 }
 
-.badge-item .rating {
-    font-size: 0.95rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.badge-item .stars {
-    color: #fbbf24; /* yellow */
-    font-size: 1rem;
-    letter-spacing: 1px;
-}
-.half-star {
-    color: #fbbf24;
-    opacity: 0.5;
-}
-
-/* Solid Form */
+/* Form Wrapper */
 .hero-form-wrapper {
     flex: 1;
-    max-width: 550px;
+    max-width: 500px;
 }
 
 .solid-form {
     background: var(--bg-form);
     padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-    text-align: center;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .solid-form h3 {
-    font-size: 1.6rem;
-    color: var(--primary-color);
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
 .solid-form p {
-    color: #fff;
+    color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 2rem;
-    font-weight: 500;
 }
 
 .form-row {
@@ -269,17 +287,16 @@ h1, h2, h3, h4 {
 
 .input-group {
     margin-bottom: 1rem;
-    text-align: left;
 }
 
 .input-group input,
 .input-group textarea {
     width: 100%;
     background: var(--form-input-bg);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--glass-border);
     padding: 0.9rem;
-    border-radius: 6px;
-    color: #333;
+    border-radius: 8px;
+    color: #fff;
     font-family: inherit;
     font-size: 0.95rem;
 }
@@ -294,16 +311,16 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     font-size: 0.85rem;
-    color: #fff;
+    color: var(--text-muted);
     margin: 1.5rem 0;
     cursor: pointer;
-    text-align: left;
     gap: 0.5rem;
 }
 
 .checkbox-container input {
     width: 16px;
     height: 16px;
+    accent-color: var(--primary-color);
 }
 
 .btn-submit {
@@ -311,9 +328,9 @@ h1, h2, h3, h4 {
     padding: 1.1rem;
     background: var(--primary-color);
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #fff;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.3s;
@@ -325,21 +342,22 @@ h1, h2, h3, h4 {
 }
 
 .form-disclaimer {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    text-align: left;
+    text-align: center;
 }
 
 .form-disclaimer a {
     color: var(--primary-color);
+    text-decoration: underline;
 }
 
-/* Stats */
+/* Stats Section */
 .stats {
-    background: #000;
-    padding: 3rem 0;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: var(--bg-card);
+    padding: 4rem 0;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .stats-container {
@@ -349,13 +367,13 @@ h1, h2, h3, h4 {
 }
 
 .stat-item h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .stat-item p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--text-muted);
 }
@@ -369,18 +387,6 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-.sub-heading {
-    color: var(--primary-color);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    margin: 1rem 0 4rem;
-}
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -388,36 +394,30 @@ h1, h2, h3, h4 {
 }
 
 .service-card {
-    background: rgba(30, 41, 59, 0.7);
+    background: var(--bg-card);
     border: 1px solid var(--glass-border);
     padding: 2.5rem;
-    border-radius: 20px;
+    border-radius: 16px;
     text-align: left;
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.3s;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    background: rgba(30, 41, 59, 0.9);
-    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
 }
 
 .icon-wrapper {
-    width: 80px;
-    height: 80px;
-    border-radius: 16px;
-    background: rgba(249, 115, 22, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    padding: 10px;
-}
-
-.icon-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
 
 .service-card h3 {
@@ -427,12 +427,214 @@ h1, h2, h3, h4 {
 
 .service-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.service-list li {
+    margin-bottom: 0.5rem;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-list li i {
+    color: var(--primary-color);
+}
+
+.explore-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.explore-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Capabilities Bento */
+.capabilities {
+    padding: 6rem 0;
+    background: #0b0f19;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.bento-item {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}
+
+.bento-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.bento-item h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.bento-item p {
+    color: var(--text-muted);
+}
+
+/* Tech Stack */
+.tech-stack {
+    padding: 6rem 0;
+}
+
+.tech-logos {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.tech-item i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Portfolio */
+.portfolio {
+    padding: 8rem 0;
+    background: #0b0f19;
+}
+
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.portfolio-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.portfolio-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-content {
+    padding: 2.5rem;
+    flex: 1;
+}
+
+.portfolio-tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-card p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.portfolio-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.portfolio-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.portfolio-meta span:first-child::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    background: var(--glass-border);
+    margin-left: 1.5rem;
+}
+
+.portfolio-image.placeholder {
+    height: 300px;
+    background: linear-gradient(180deg, rgba(99,102,241,0.2) 0%, rgba(30,41,59,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    border-top: 1px solid var(--glass-border);
 }
 
 /* Footer */
 footer {
-    background: #000;
     padding: 4rem 0 2rem;
     border-top: 1px solid var(--glass-border);
 }
@@ -459,7 +661,6 @@ footer {
     margin-top: 1rem;
     font-size: 0.9rem;
     max-width: 300px;
-    font-family: var(--font-sans);
 }
 
 .footer-links h4, .footer-contact h4 {
@@ -515,6 +716,12 @@ footer {
     .stats-container {
         flex-direction: column;
         gap: 2rem;
+    }
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
     }
     .footer-container {
         grid-template-columns: 1fr;
